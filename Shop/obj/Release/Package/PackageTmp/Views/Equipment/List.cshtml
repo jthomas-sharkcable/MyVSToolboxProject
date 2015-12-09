@@ -1,0 +1,15 @@
+﻿@model Shop.Models.EquipmentsListViewModel
+
+@{
+    ViewBag.Title = "Equipment";
+}
+
+@foreach (var e in Model.Equipments)
+{
+   @Html.Partial("EquipmentSummary", e)
+}
+
+<div class="btn btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+</div>
+
